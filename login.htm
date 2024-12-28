@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background-color: #001f3f; /* Fallback navy blue shade */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 350px;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-container h2 {
+            margin-bottom: 25px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: #fff;
+        }
+
+        .form-group input:focus {
+            outline: 2px solid #e50914;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b20710;
+        }
+
+        .help-section {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .help-section a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .help-section a:hover {
+            text-decoration: underline;
+        }
+
+        .login-container .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            text-align: center;
+            color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Sign In</h2>
+        <form>
+            <div class="form-group">
+                <label for="email">Email or phone number</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+
+            <button type="" id="sign-in" class="btn"><a href="/store.htm" style="color: white; text-decoration: none;">Sign In</a></button>
+        </form>
+        <div class="help-section">
+            <a href="#">Forgot your password?</a><br>
+            <a href="#">Sign up now</a>
+        </div>
+        <div class="footer">
+            This page is protected by Google reCAPTCHA to ensure you're not a bot.
+        </div>
+    </div>
+</body>
+<script src="/script.js"></script>
+</html>

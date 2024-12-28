@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Shuffle Cards</title>
+
+    <style>
+        .card {
+            border: 1px solid white;
+            height: 400px;
+            width: 290px;
+            background-color: white;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        .card:hover{
+            transform: scale(1.1);
+            transition: 0.5s;
+            background-color: rgb(175, 175, 175);
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+
+
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="headerhead" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+            <div style="font-size: 35px;">FitFussion</div>
+            <div style="padding-top: 20px;">
+                <span style="color: red;">HOLIDAY SALE</span>
+                <span>NEW IN</span>
+                <span>MENS</span>
+            </div>
+            <div style="padding-top: 20px;">
+                <span class="bi bi-search"></span>
+                <span class="bi bi-bookmark"></span>
+                <span class="bi bi-person"></span>
+                <span class="bi bi-bag"></span>
+            </div>
+        </div>
+    </header>
+
+
+    <div style="height: 300px; padding-top:20px;">
+
+        <div align="center" style="width: 500px; ">All PRODUCT  <h6>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit ipsam delectus ipsa, perferendis facere quos magnam reiciendis rerum quaerat praesentium veritatis, tenetur eaque esse! Natus numquam exercitationem soluta ipsa id?</h6></div>
+    </div>
+
+    <main>
+        <div class="cards" id="cardContainer">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="/public/imgs/crosol/img1.jpg"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/public/imgs/crosol/img2.png"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/public/imgs/crosol/img3.png"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/public/imgs/crosol/img4.png"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/public/imgs/crosol/img5.png"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/public/imgs/crosol/img6.png"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/public/imgs/crosol/img7.png"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/public/imgs/crosol/img8.png"  width="290px" alt="">
+                <div style="height: 60px; background-color: white; padding: 10px;">
+                    <div style="font-size: 13px; color: rgb(48, 48, 48);">RICAMO REGULAR LOGO CREW SWEATSHIRT IN BLACK</div>
+                    <div style="font-size: 13px; color: red;"><s style="color: gray;">Rs.8,300.00</s> Rs. 5,000.00</div>
+                </div>
+            </div>
+
+            
+            <!-- Add more cards as needed -->
+        </div>
+    </main>
+
+    <!-- Filter Button -->
+    <div class="button">
+        <button class="filter-button btn btn-primary" style="position: fixed; bottom: 40px; left: 550px;" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterModalLabel">Filter Options</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="size" class="form-label">Loose:</label>
+                            <select id="size" name="options" class="form-select">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="height" class="form-label">Height:</label>
+                            <input type="text" id="height" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="occasion" class="form-label">Occasion:</label>
+                            <select id="occasion" name="occasion" class="form-select">
+                                <option value="party">Party Wear</option>
+                                <option value="regular">Regular</option>
+                                <option value="genz">Gen-Z</option>
+                                <option value="marriage">Marriage</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="style" class="form-label">Fitting Style:</label>
+                            <select id="style" name="style" class="form-select">
+                                <option value="street">Street</option>
+                                <option value="formals">Formals</option>
+                                <option value="cultural">Cultural</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="shade" class="form-label">Preferred Shade:</label>
+                            <select id="shade" name="shade" class="form-select">
+                                <option value="dark">Dark</option>
+                                <option value="light">Light</option>
+                                <option value="moderate">Moderate</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger"  onclick="shuffleCards()">Apply Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to Shuffle Cards -->
+    <script>
+        function shuffleCards() {
+            var container = document.getElementById('cardContainer');
+            var cards = Array.from(container.getElementsByClassName('card'));
+
+            // Shuffle the array of cards using Fisher-Yates algorithm
+            for (let i = cards.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+
+            // Reorder the cards in the container
+            cards.forEach(card => {
+                container.appendChild(card);
+            });
+
+            // Reload the page (optional)
+            location.reload();
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
