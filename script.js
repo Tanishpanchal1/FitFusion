@@ -7,7 +7,7 @@ window.addEventListener('scroll', () => {
     header.style.backgroundColor = 'white'; // Change to green
     header.style.color = 'black';
     summer.style.color='black';
-    document.getElementById("loginbar").style.display="none"
+    
     
 
 
@@ -26,11 +26,7 @@ if (window.scrollY ==0) {
 });
 
 
-document.getElementById("login").addEventListener("click", () =>{
-    document.getElementById("loginbar").style.display="block"
-    document.getElementById("loginbar").style.transition="5s"
-    
-})
+
 
 
 
