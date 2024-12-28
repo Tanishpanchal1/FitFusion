@@ -127,6 +127,10 @@
 </div>
 
   <script>
+   
+    // Exchange rate from USD to INR (adjust as needed)
+    const exchangeRate = 82; // Example: 1 USD = 82 INR
+
     // Get cart data from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -142,13 +146,16 @@
         const itemElement = document.createElement('div');
         itemElement.classList.add('cart-item');
 
+        // Convert price to rupees
+        const priceInRupees = (item.price * exchangeRate).toFixed(2);
+
         itemElement.innerHTML = `
           <img src="${item.image}" alt="${item.name}">
           <div class="cart-item-details">
             <h3>${item.name}</h3>
             <p>Size: ${item.size}</p>
             <p>Color: ${item.color}</p>
-            <p>Price: $${item.price}</p>
+            <p>Price: ₹${priceInRupees}</p>  <!-- Display price in rupees -->
           </div>
           <button onclick="removeFromCart(${index})">Delete</button>
         `;
@@ -157,8 +164,9 @@
         totalPrice += item.price;
       });
 
-      // Display total price
-      totalElement.innerHTML = `Total: $${totalPrice.toFixed(2)}`;
+      // Convert total price to rupees
+      const totalInRupees = (totalPrice * exchangeRate).toFixed(2);
+      totalElement.innerHTML = `Total: ₹${totalInRupees}`;  // Display total in rupees
     }
 
     // Function to remove item from the cart
@@ -201,6 +209,15 @@
     function generateOrderId() {
       return 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase();
     }
+
+    // Optionally, you can add a function to get the delivery date (for simplicity, it's just a placeholder)
+    function getDeliveryDate() {
+      const deliveryDate = new Date();
+      deliveryDate.setDate(deliveryDate.getDate() + 5);  // Example: Delivery in 5 days
+      return deliveryDate.toLocaleDateString();
+    }
+
+
 
     // Function to simulate a delivery date (7 days from now)
     function getDeliveryDate() {
