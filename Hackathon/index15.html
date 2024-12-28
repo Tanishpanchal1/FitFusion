@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <title>Product Page with Measurements</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 50px auto;
+      background-color: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      max-width: 1100px;
+      overflow: hidden;
+    }
+
+    /* Left side image slider */
+    .product-image {
+      width: 50%;
+      padding: 20px;
+      position: relative;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: #ff5722;
+      cursor: pointer;
+      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    /* Right side product details */
+    .product-details {
+      width: 50%;
+      padding: 30px;
+      background-color: #fff;
+    }
+
+    .product-details h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .rating {
+      color: #FFD700;
+      font-size: 20px;
+    }
+
+    .rating span {
+      margin-right: 5px;
+    }
+
+    /* Section Headings */
+    .section-heading {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    /* Available Sizes, Colors */
+    .size-list, .color-list {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .size-list span, .color-list span {
+      background-color: #f4f4f4;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+    }
+
+    .size-list span:hover, .color-list span:hover {
+      background-color: #ff5722;
+      color: #fff;
+    }
+
+    /* Tooltip for size information */
+    .tooltip {
+      position: absolute;
+      top: -30px;
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 14px;
+      display: none;
+      z-index: 1;
+    }
+
+    /* Measurement Inputs */
+    .input-section {
+      margin-bottom: 20px;
+    }
+
+    .input-section label {
+      font-size: 18px;
+      color: #333;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-section input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      color: #333;
+    }
+
+    /* Special Offers */
+    .offers-list {
+      background-color: whitesmoke;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #ff5722;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+      width: 100%;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .size-list, .color-list {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .size-list span, .color-list span {
+      background-color: #f4f4f4;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+    }
+
+    .size-list span:hover, .color-list span:hover {
+      background-color: #ff5722;
+      color: #fff;
+    }
+
+    .size-dropdown {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .size-list span:hover + .size-dropdown {
+      display: block;
+    }
+
+    .size-dropdown p {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+    }
+    .Special{
+    color:green;
+}
+.off{
+    color:green;
+}
+
+   .off strike{
+        font-size: 20px;
+    }
+
+
+    .offers-list p {
+      color: green;
+    }
+
+    .btn:hover {
+      background-color: #e64a19;
+    }
+    .colors{
+        margin-top: 50px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .product-image, .product-details {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="product-container">
+    <!-- Left Side: Product Image with slider -->
+    <div class="product-image">
+      <img src="social/image/whitesmoky.png" alt="Product Image" id="productImage">
+      <span class="arrow arrow-left" onclick="changeImage('right')">&#10094;</span> <!-- Left Arrow -->
+      <span class="arrow arrow-right" onclick="changeImage('left')">&#10095;</span> <!-- Right Arrow -->
+    </div>
+
+    <!-- Right Side: Product Details -->
+    <div class="product-details">
+      <h2>Stylish Running T-shirt</h2>
+      <!-- Product Rating -->
+      <div class="rating">
+        <span>⭐⭐⭐⭐⭐</span>
+        <span>(150 Reviews)</span>
+      </div>
+      <div class="Special">Special price</div>
+      <span> <b>₹1499</b> <strike>₹999</strike></span> <span class="off">75% off</span>
+      <!-- Product Description -->
+      <p>This black t-shirt combines comfort and style in one. With a soft, breathable fabric, it’s perfect for everyday wear. Its timeless design pairs effortlessly with any outfit, making it a versatile wardrobe essential. Durable, easy to care for, and built to last.</p>
+
+
+      <!-- Available Sizes -->
+       
+      <!-- Special Offers -->
+      <div>
+        <h3 class="section-heading">Special Offers</h3>
+        <div class="offers-list">
+          <p>10% off on first order</p>
+          <p>Free shipping on orders above ₹500</p>
+          
+        </div>
+      </div>
+      <!-- Available Sizes -->
+      <div>
+        <h3 class="section-heading">Available Sizes</h3>
+        <div class="size-list">
+          <span>S</span>
+          <div class="size-dropdown">
+            <p>Height: 150-160 cm</p>
+            <p>Chest: 80-90 cm</p>
+            <p>Waist: 60-70 cm</p>
+          </div>
+          <span>M</span>
+          <div class="size-dropdown">
+            <p>Height: 160-170 cm</p>
+            <p>Chest: 90-100 cm</p>
+            <p>Waist: 70-80 cm</p>
+          </div>
+          <span>L</span>
+          <div class="size-dropdown">
+            <p>Height: 170-180 cm</p>
+            <p>Chest: 100-110 cm</p>
+            <p>Waist: 80-90 cm</p>
+          </div>
+          <span>XL</span>
+          <div class="size-dropdown">
+            <p>Height: 180-190 cm</p>
+            <p>Chest: 110-120 cm</p>
+            <p>Waist: 90-100 cm</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Available Colors -->
+      <div class="colors">
+        <h3 class="section-heading">Available Colors</h3>
+        <div class="color-list">
+          <span onclick="changeColor('whitesmoke')">whitesmoke</span>
+          <span onclick="changeColor('blue')">Blue</span>
+          <span onclick="changeColor('black')">Black</span>
+          <span onclick="changeColor('white')">White</span>
+        </div>
+      </div>
+
+      <!-- Delivery Options -->
+      <div>
+        <h3 class="section-heading">Delivery Options</h3>
+        <p>Free delivery within 3-5 business days. Express delivery available at checkout.</p>
+      </div>
+
+      <!-- Add to Cart Button -->
+      <button class="btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+
+  <script>
+    let currentImage = 'front'; // Default to front image
+
+    // Function to change the image based on left/right click
+    function changeImage(direction) {
+      const imageElement = document.getElementById('productImage');
+
+      // Toggle between front and back images
+      if (direction === 'left') {
+        currentImage = 'back';
+      } else if (direction === 'right') {
+        currentImage = 'front';
+      }
+
+      // Update the image source based on the selected image
+      if (currentImage === 'front') {
+        imageElement.src = 'social/image/whitesmoky.png'; // Front image
+      } else if (currentImage === 'back') {
+        imageElement.src = 'social/image/whitesmoky2.png'; // Back image
+      }
+    }
+
+    // Function to change the image based on selected color
+    function changeColor(color) {
+      const imageElement = document.getElementById('productImage');
+
+      if (color === 'whitesmoke') {
+        imageElement.src = 'social/image/whitesmoky.png';
+        
+      } else if (color === 'blue') {
+        imageElement.src = 'social/image/tshirt-blue-front.jpg';
+      } else if (color === 'black') {
+        imageElement.src = 'social/image/tshirt-black-front.jpg';
+      } else if (color === 'white') {
+        imageElement.src = 'social/image/tshirt-white-front.jpg';
+      }
+    }
+    function addToCart() {
+    // Get product details
+    const product = {
+        name: 'Stylish Running T-shirt',
+        price: 29.99, // You can change this to the actual price of the product
+        size: getSelectedSize(),
+        color: getSelectedColor(),
+        image: document.getElementById('productImage').src
+    };
+
+    // Get the existing cart from localStorage or initialize an empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add the product to the cart
+    cart.push(product);
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Redirect to cart page
+    window.location.href = 'cart.html';
+}
+
+function getSelectedSize() {
+    // Get the selected size from the size list
+    const selectedSizeElement = document.querySelector('.size-list span.selected');
+    return selectedSizeElement ? selectedSizeElement.innerText : 'M'; // Default to 'M' if none selected
+}
+
+function getSelectedColor() {
+    // Get the selected color from the color list
+    const selectedColorElement = document.querySelector('.color-list span.selected');
+    return selectedColorElement ? selectedColorElement.innerText : 'Black'; // Default to 'Black' if none selected
+}
+
+// Function to highlight the selected size
+document.querySelectorAll('.size-list span').forEach(span => {
+    span.addEventListener('click', function () {
+        document.querySelectorAll('.size-list span').forEach(s => s.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
+
+// Function to highlight the selected color
+document.querySelectorAll('.color-list span').forEach(span => {
+    span.addEventListener('click', function () {
+        document.querySelectorAll('.color-list span').forEach(s => s.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar {
+    margin-top: 10px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.filter-btn:hover {
+    background-color: #555;
+}
+
+/* Main product section */
+main {
+    padding: 20px;
+}
+
+/* Product container styles */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Product card styles */
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-card .product-info {
+    padding: 15px;
+}
+
+.product-card .product-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-card .product-price {
+    color: #2c3e50;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top:500px;
+}

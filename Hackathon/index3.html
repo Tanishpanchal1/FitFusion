@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Collection</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">T-Shirt Store</div>
+        <div class="navbar">
+            <button class="filter-btn" onclick="filterTshirts('all')">All</button>
+            <button class="filter-btn" onclick="filterTshirts('men')">Men's</button>
+            <button class="filter-btn" onclick="filterTshirts('women')">Women's</button>
+            <button class="filter-btn" onclick="filterTshirts('unisex')">Unisex</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-container" id="product-container">
+            <!-- T-shirt items will be inserted here dynamically -->
+        </section>
+    </main>
+
+    
+
+    <script src="scripts2.js"></script>
+</body>
+</html>
