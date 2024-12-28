@@ -123,7 +123,7 @@
     <p>Your order has been successfully placed.</p>
     <p><strong>Order ID:</strong> <span id="orderId"></span></p>
     <p><strong>Delivery Status:</strong> Your order is on the way! It will arrive on <span id="deliveryDate"></span>.</p>
-    <button onclick="window.location.href='index4.html'">Go to Home</button>
+    <button onclick="window.location.href='indis.html'">Go to Home</button>
 </div>
 
   <script>
@@ -212,6 +212,12 @@
 
     // Initial call to display the cart
     updateCart();
+    function checkout() {
+        // You can add any checkout logic here (like validation, processing, etc.)
+        // For now, it just redirects to the payment page.
+        window.location.href = "payment.html";
+    }
+
   </script>
 
 </body>
