@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    /* Basic styles for cart */
+    .cart-container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .cart-item h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .cart-item p {
+      margin: 5px 0;
+      color: #777;
+    }
+
+    .cart-item button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .cart-item button:hover {
+      background-color: darkred;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .checkout-button {
+      display: block;
+      width: 100%;
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border: none;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .checkout-button:hover {
+      background-color: darkgreen;
+    }
+
+    /* Order confirmation styles */
+    .order-confirmation {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      display: none;
+    }
+
+    .order-confirmation h2 {
+      margin-bottom: 20px;
+    }
+
+    .order-confirmation p {
+      font-size: 18px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="cart-container" id="cartContainer">
+    <h2>Your Cart</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="total" id="total"></div>
+
+    <!-- Checkout Button -->
+    <button class="checkout-button" onclick="checkout()">Proceed to buy</button>
+  </div>
+
+  <!-- Order Confirmation -->
+  <div class="order-confirmation" id="orderConfirmation">
+    <h2>Thank you for your purchase!</h2>
+    <p>Your order has been successfully placed.</p>
+    <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+    <p><strong>Delivery Status:</strong> Your order is on the way! It will arrive on <span id="deliveryDate"></span>.</p>
+    <button onclick="window.location.href='index4.html'">Go to Home</button>
+</div>
+
+  <script>
+    // Get cart data from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Function to update the cart display and total price
+    function updateCart() {
+      const cartItemsContainer = document.getElementById('cartItems');
+      const totalElement = document.getElementById('total');
+      cartItemsContainer.innerHTML = '';  // Clear current cart display
+      let totalPrice = 0;
+
+      // Display cart items
+      cart.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+
+        itemElement.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-item-details">
+            <h3>${item.name}</h3>
+            <p>Size: ${item.size}</p>
+            <p>Color: ${item.color}</p>
+            <p>Price: $${item.price}</p>
+          </div>
+          <button onclick="removeFromCart(${index})">Delete</button>
+        `;
+
+        cartItemsContainer.appendChild(itemElement);
+        totalPrice += item.price;
+      });
+
+      // Display total price
+      totalElement.innerHTML = `Total: $${totalPrice.toFixed(2)}`;
+    }
+
+    // Function to remove item from the cart
+    function removeFromCart(index) {
+      // Remove the item from the cart array
+      cart.splice(index, 1);
+
+      // Save the updated cart to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Update the cart display
+      updateCart();
+    }
+
+    // Function to handle the checkout process
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty. Please add items to your cart before proceeding.");
+        return;
+      }
+
+      // Simulate a purchase
+      const orderId = generateOrderId();
+      const deliveryDate = getDeliveryDate();
+
+      // Hide the cart and display order confirmation
+      document.getElementById('cartContainer').style.display = 'none';
+      document.getElementById('orderConfirmation').style.display = 'block';
+
+      // Display order details
+      document.getElementById('orderId').textContent = orderId;
+      document.getElementById('deliveryDate').textContent = deliveryDate;
+
+      // Clear the cart from localStorage
+      localStorage.removeItem('cart');
+      cart = [];
+    }
+
+    // Function to generate a random order ID
+    function generateOrderId() {
+      return 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+    }
+
+    // Function to simulate a delivery date (7 days from now)
+    function getDeliveryDate() {
+      const today = new Date();
+      today.setDate(today.getDate() + 7);
+      const deliveryDate = today.toLocaleDateString();
+      return deliveryDate;
+    }
+
+    // Initial call to display the cart
+    updateCart();
+  </script>
+
+</body>
+</html>

@@ -102,18 +102,18 @@
 <body>
     <div class="login-container">
         <h2>Sign In</h2>
-        <form>
+        <form id="login-form">
             <div class="form-group">
                 <label for="email">Email or phone number</label>
-                <input type="email" id="email" placeholder="Enter your email">
+                <input type="email" id="email" placeholder="Enter your email" required>
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password">
+                <input type="password" id="password" placeholder="Enter your password" required>
             </div>
 
-            <button type="" id="sign-in" class="btn"><a href="/store.htm" style="color: white; text-decoration: none;">Sign In</a></button>
+            <button type="submit" class="btn">Sign In</button>
         </form>
         <div class="help-section">
             <a href="#">Forgot your password?</a><br>
@@ -123,6 +123,24 @@
             This page is protected by Google reCAPTCHA to ensure you're not a bot.
         </div>
     </div>
+
+    <script>
+        // Add a submit event listener to the form
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from submitting
+
+            // Validate inputs if needed
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (email && password) {
+            
+                window.location.href = "Hackathon/indis.html"; 
+    
+            } else {
+                alert("Please fill in both fields.");
+            }
+        });
+    </script>
 </body>
-<script src="/script.js"></script>
 </html>
